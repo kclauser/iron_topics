@@ -15,5 +15,19 @@
   <%= @topic.focus_area %>
 </p>
 
+<ul>
+<%= render @topic.interests %>
+</ul>
+
+<%= form_for([@topic, @topic.interests.new]) do |f| %>
+  <ul>
+    <li>Comment</li>
+    <li><%= f.text_field :comment %></li>
+    <li>Level</li>
+    <li><%= f.text_field :level %></li>
+    <li><%= f.submit %></li>
+  </ul>
+<% end %>
+
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
