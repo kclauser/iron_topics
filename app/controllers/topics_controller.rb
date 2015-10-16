@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-
+  before_action :ensure_current_user
   # GET /topics
   # GET /topics.json
   def index
