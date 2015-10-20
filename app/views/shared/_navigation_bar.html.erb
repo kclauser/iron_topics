@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Iron Topics", root_path, class: "navbar-brand" %>
+      <!-- Above is the rails helper way of doing a link, below is the old way -->
+      <!-- <a class="navbar-brand" href='<%= root_path %>'>Iron Topics</a> -->
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", root_path, class: "active" %></li>
+        <li><%= link_to 'New Topic', new_topic_path %></li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% if current_user %>
+          <%= link_to 'Log Out', signout_path, method: :delete, data: { confirm: "Are you sure?" } %>
+          <% else %>
+          <%= link_to 'Login with Github', auth_path(provider: 'github') %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

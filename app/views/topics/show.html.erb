@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="interests_page_view">
 <p>
   <strong>Title:</strong>
   <%= @topic.title %>
@@ -19,7 +19,7 @@
 <%= render @topic.interests %>
 </ul>
 
-<%= form_for([@topic, @topic.interests.new]) do |f| %>
+<!-- <%= form_for([@topic, @topic.interests.new]) do |f| %>
   <ul>
     <li>Comment</li>
     <li><%= f.text_field :comment %></li>
@@ -27,7 +27,14 @@
     <li><%= f.text_field :level %></li>
     <li><%= f.submit %></li>
   </ul>
+<% end %> -->
+
+<%= simple_form_for([@topic, @topic.interests.new]) do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :level %>
+  <%= f.button :submit %>
 <% end %>
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
+</div>

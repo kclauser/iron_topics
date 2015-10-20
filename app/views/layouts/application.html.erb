@@ -8,10 +8,7 @@
 </head>
 <body>
 
-<% if current_user %>
-  <%= link_to 'log_out', signout_path, method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
-
+<%= render 'shared/navigation_bar' %>
 <%= yield %>
 
 </body>

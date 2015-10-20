@@ -11,7 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <%= simple_form_for(@topic) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :long_description, class: "long_text_box" %>
+    <%= f.input :focus_area%>
+    <%= f.button :submit %>
+  <% end %>
+
+  <!-- <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
@@ -26,4 +33,4 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+<% end %> -->

@@ -1,31 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Topics</h1>
+<h1 class='topics_heading'>Listing Topics</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Long description</th>
-      <th>Focus area</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- <% @topics.each do |topic| %>
+<div class='topic_container'>
+  <h2 class='topic_title'><%= link_to topic.title, topic_path(topic) %></h2>
+  <p class='topic_desc'><%= topic.long_description %></p>
+</div>
+<% end %> -->
+<div class='row row-centered'>
+<% @topics.each do |topic| %>
 
-  <tbody>
-    <% @topics.each do |topic| %>
-      <tr>
-        <td><%= topic.title %></td>
-        <td><%= topic.long_description %></td>
-        <td><%= topic.focus_area %></td>
-        <td><%= link_to 'Show', topic %></td>
-        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-        <!-- <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class='col-xs-6 col-md-3 col-centered topic_container'>
+      <h2 class='topic_title_display'><%= link_to topic.title, topic_path(topic) %></h2>
+      <p class='topic_desc'><%= topic.long_description %></p>
+  </div>
+
+<% end %>
+</div>
 
 <br>
-
-<%= link_to 'New Topic', new_topic_path %>
